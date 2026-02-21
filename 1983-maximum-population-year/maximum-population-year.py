@@ -21,7 +21,7 @@ class Solution(object):
         #         curr_pop = 1
         #         boundary = logs[i][1]
         # bruute force approach
-        # curr_pop = 1
+        curr_pop = 1
         max_pop = 0
         max_year = logs[0][0]
         for i in range(n):
