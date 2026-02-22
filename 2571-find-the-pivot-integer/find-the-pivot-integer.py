@@ -20,8 +20,8 @@ class Solution(object):
             if left == right:
                 return (i+1)
             left  =  prefix(i+1)
-            if i != (n -1):
-                right =  prefix(n) - prefix(i+2)
-            else:
-                right == 0
+            # if i != (n -1):
+            right =  prefix(n) - prefix(i+2)
+            # else:
+            #     right == 0
         return -1
