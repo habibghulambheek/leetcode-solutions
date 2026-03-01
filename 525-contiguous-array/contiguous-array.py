@@ -17,7 +17,9 @@ class Solution(object):
             if running_balance == 0:
                 ans  = i + 1
             elif running_balance in prefix:
-                ans = max(ans,i - prefix[running_balance])
+                curr_len =i - prefix[running_balance]
+                if curr_len > ans:
+                    ans = curr_len
             else:
                 prefix[running_balance] = i
         return ans
