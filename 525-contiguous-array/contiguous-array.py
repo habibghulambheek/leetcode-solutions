@@ -6,7 +6,7 @@ class Solution(object):
         """
         n =  len(nums)
         running_balance = 0
-        prefix = {0:0}
+        prefix = {}
         ans = 0
         
         for i in range(n):
