@@ -18,6 +18,6 @@ class Solution(object):
                 ans  = i + 1
             elif running_balance in prefix:
                 ans = max(ans,i - prefix[running_balance])
-            if running_balance not in prefix:
+            else:
                 prefix[running_balance] = i
         return ans
