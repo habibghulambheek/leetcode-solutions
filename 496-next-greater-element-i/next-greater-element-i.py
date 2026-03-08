@@ -19,7 +19,7 @@ class Solution(object):
                 stack.pop() 
             if not stack:
                 idx  = indices.get(nums[j], None)
-                print("Idx:", idx)
+                # print("Idx:", idx)
                 if idx != None:
                     nums1[idx] = -1
             else:
