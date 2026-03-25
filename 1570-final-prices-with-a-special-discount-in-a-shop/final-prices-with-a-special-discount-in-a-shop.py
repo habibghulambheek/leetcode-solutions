@@ -16,6 +16,6 @@ class Solution(object):
             value = prices[j]
             if stack:
                 prices[j] = prices[j] - stack[-1]
-            
+
             stack.append(value)
         return prices
