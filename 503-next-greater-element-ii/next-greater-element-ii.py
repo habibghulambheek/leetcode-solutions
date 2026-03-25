@@ -12,6 +12,7 @@ class Solution(object):
                 while stack and nums[stack[-1]] < nums[i]:
                     idx = stack.pop()
                     ans[idx] = nums[i]
-                stack.append(i)
+                if j == 0:
+                    stack.append(i)
         
         return ans
