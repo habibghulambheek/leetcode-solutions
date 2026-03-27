@@ -1,4 +1,5 @@
-from sortedcontainers import SortedList
+# from sortedcontainers import SortedList
+from collections import deque
 class Solution(object):
     def maxSlidingWindow(self, nums, k):
         """
@@ -6,19 +7,46 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        n = len(nums)
-        ans =[]
-        window  = SortedList()
-        for i in range(k):
-            # heapq.heappush(window, nums[i])
-            window.add(-nums[i])
-        ans.append(-window[0]) #  Pushing the root
-        i = 0
-        for j in range(k, n):
-            # heapq.heappop(window, nums[i])
-            # heapq.heappush(window, nums[j])
-            window.remove(-nums[i])
-            window.add(-nums[j])
+        # n = len(nums)
+        # ans =[]
+        # window  = SortedList()
+        # for i in range(k):
+        #     # heapq.heappush(window, nums[i])
+        #     window.add(-nums[i])
+        # ans.append(-window[0]) #  Pushing the root
+        # i = 0
+        # for j in range(k, n):
+        #     # heapq.heappop(window, nums[i])
+        #     # heapq.heappush(window, nums[j])
+        #     window.remove(-nums[i])
+        #     window.add(-nums[j])
+        #     i += 1
+        #     ans.append(-window[0])
+        # return ans
+        n   = len(nums)
+        ans = []
+        window = deque()
+        window.appendleft(0)
+        for i in range(1,k):
+            if nums[i] > nums[window[0]]:
+                window.appendleft(i)
+            else:
+                while nums[window[-1]] < nums[i]:
+                    window.pop()
+                window.append(i)
+        # print(window)
+        ans.append(nums[window[0]])
+        i  = 0
+        for j in range(k,n):
+            if nums[j] > nums[window[0]]:
+                window.appendleft(j)
+            else:
+                while nums[window[-1]] < nums[j]:
+                    window.pop()
+                window.append(j)
             i += 1
-            ans.append(-window[0])
+            while window[0] < i:
+                window.popleft()
+            
+            ans.append(nums[window[0]])
         return ans
