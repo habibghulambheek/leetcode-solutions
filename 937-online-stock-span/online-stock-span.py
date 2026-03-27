@@ -30,13 +30,12 @@ class StockSpanner(object):
         #         jump = self.state[curr_idx][1] 
         #         ans += jump
         #         curr_idx  -= jump
-        # self.state.append((price, ans))
-        ans = 1
+        # self.state.append((price, ans))))
+        ans =  1
         while self.state and self.state[-1][0] <= price:
-            ans += self.state.pop()[1]
+            ans  += self.state.pop()[1]
         self.state.append((price, ans))
         return ans
-        # return ans
         
 
 # Your StockSpanner object will be instantiated and called as such:
