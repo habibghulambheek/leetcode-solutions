@@ -23,30 +23,44 @@ class Solution(object):
         #     i += 1
         #     ans.append(-window[0])
         # return ans
-        n   = len(nums)
-        ans = []
-        window = deque()
-        window.appendleft(0)
-        for i in range(1,k):
-            if nums[i] > nums[window[0]]:
-                window.appendleft(i)
-            else:
-                while nums[window[-1]] < nums[i]:
-                    window.pop()
-                window.append(i)
-        # print(window)
-        ans.append(nums[window[0]])
-        i  = 0
-        for j in range(k,n):
-            if nums[j] > nums[window[0]]:
-                window.appendleft(j)
-            else:
-                while nums[window[-1]] < nums[j]:
-                    window.pop()
-                window.append(j)
-            i += 1
-            while window[0] < i:
-                window.popleft()
+        # n   = len(nums)
+        # ans = []
+        # window = deque()
+        # window.appendleft(0)
+        # for i in range(1,k):
+        #     if nums[i] > nums[window[0]]:
+        #         window.appendleft(i)
+        #     else:
+        #         while nums[window[-1]] < nums[i]:
+        #             window.pop()
+        #         window.append(i)
+        # # print(window)
+        # ans.append(nums[window[0]])
+        # i  = 0
+        # for j in range(k,n):
+        #     if nums[j] > nums[window[0]]:
+        #         window.appendleft(j)
+        #     else:
+        #         while nums[window[-1]] < nums[j]:
+        #             window.pop()
+        #         window.append(j)
+        #     i += 1
+        #     while window[0] < i:
+        #         window.popleft()
             
-            ans.append(nums[window[0]])
+        #     ans.append(nums[window[0]])
+        # return ans
+        n = len(nums)
+        ans = []
+        window  = deque()
+        for j in range(n):
+            
+            while window and window[0] < j - k +1 :
+                window.popleft()
+
+            while window and nums[window[-1]] < nums[j]:
+                window.pop()
+            window.append(j)
+            if j >= k-1:
+                ans.append(nums[window[0]])
         return ans
