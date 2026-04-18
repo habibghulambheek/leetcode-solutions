@@ -18,8 +18,8 @@ class Solution(object):
         while left <=  right:
             mid = left + (right - left)//2
             hours = total_hours(mid)
-            print("mid:", mid)
-            print("hours:",hours)
+            # print("mid:", mid)
+            # print("hours:",hours)
             if hours > h: 
                 left = mid + 1
             else:
