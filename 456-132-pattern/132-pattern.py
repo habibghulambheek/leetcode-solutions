@@ -12,7 +12,7 @@ class Solution(object):
                 value = stack.pop()
                 if mid == None or mid < value:
                     mid = value
-            if stack and stack[-1] > nums[i] and mid != None and mid > nums[i]:
+            if mid != None and mid > nums[i]:
                 return True
             stack.append(nums[i])
         return False
