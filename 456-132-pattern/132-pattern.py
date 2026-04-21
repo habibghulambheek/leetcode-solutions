@@ -10,8 +10,7 @@ class Solution(object):
         for i in range(n-1,-1,-1):
             while stack and stack[-1] < nums[i]:
                 value = stack.pop()
-                if mid == None or mid < value:
-                    mid = value
+                mid = value
             if mid != None and mid > nums[i]:
                 return True
             stack.append(nums[i])
