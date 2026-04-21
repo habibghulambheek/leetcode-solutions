@@ -20,4 +20,13 @@ class Solution(object):
         while k != 0:
             stack.pop()
             k -=1
-        return str(int("".join(stack)))
+        non_zero = False
+        word = ""
+        for s in stack:
+            if s == "0":
+                if non_zero == True :
+                    word += s
+            else:
+                word += s
+                non_zero =True
+        return "0" if word == "" else word
