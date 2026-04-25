@@ -6,14 +6,14 @@ class Solution(object):
         :type speed: List[int]
         :rtype: int
         """
-        time = {}
-        n = len(position)
-        for i in range(n):
-            time[position[i]] = ((target - position[i]) / float(speed[i]))
-        position.sort()
-        stack = []
-        for p in position:
-            while stack and time[stack[-1]] <= time[p]:
-                stack.pop()
-            stack.append(p)
-        return len(stack)
+        pairs = [(p, (target - p) / float(s)) for p, s in zip(position, speed)]
+        pairs.sort(reverse=True)        
+        fleets = 0
+        last_time = 0
+    
+        for p, t in pairs:
+            if t > last_time:
+                fleets += 1
+                last_time = t
+        
+        return fleets
