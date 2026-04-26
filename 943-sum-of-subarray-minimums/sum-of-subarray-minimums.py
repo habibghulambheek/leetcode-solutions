@@ -16,31 +16,43 @@ class Solution(object):
         # return ans
 
         
-        stack = []
-        n = len(arr)
-        left  = [-1]*n
-        right = [-1]*n
-        for i in range(n):
-            while stack and arr[stack[-1]] >= arr[i]:
-                idx = stack.pop()
-                right[idx] = i
-            stack.append(i)
-        stack = []
-        for i in range(n-1,-1,-1):
-            while stack and arr[stack[-1]] > arr[i]:
-                idx = stack.pop()
-                left[idx] = i
-            stack.append(i)
+        # stack = []
+        # n = len(arr)
+        # left  = [-1]*n
+        # right = [-1]*n
+        # for i in range(n):
+        #     while stack and arr[stack[-1]] >= arr[i]:
+        #         idx = stack.pop()
+        #         right[idx] = i
+        #     stack.append(i)
+        # stack = []
+        # for i in range(n-1,-1,-1):
+        #     while stack and arr[stack[-1]] > arr[i]:
+        #         idx = stack.pop()
+        #         left[idx] = i
+        #     stack.append(i)
      
-        ans = 0 
-        for i in range(n):
-            l_idx = left[i] 
-  
-            r_idx =  right[i]
-            if r_idx == -1:
-                r_idx = n
-            l_idx = i - l_idx 
-            r_idx = r_idx - i
-            ans += l_idx * r_idx * arr[i]
-        return ans % (10**9  + 7)
+        # ans = 0 
+        # for i in range(n):
+        #     l_idx = left[i] 
+               
+        #     r_idx =  right[i]
+        #     if r_idx == -1:
+        #         r_idx = n
+        #     l_idx = i - l_idx 
+        #     r_idx = r_idx - i
+        #     ans += l_idx * r_idx * arr[i]
+        # return ans % (10**9  + 7)
             
+
+        stack  = []
+        n = len(arr)
+        ans = [0] * n
+
+        for i in range(n):
+            while stack and arr[stack[-1]] > arr[i]:
+                stack.pop()
+            j =  stack[-1] if stack else -1
+            ans[i]  =  ans[j] + (i- j) * arr[i]
+            stack.append(i)
+        return sum(ans) % (10**9  + 7)
