@@ -39,20 +39,21 @@ class Solution(object):
 
         # Monotonic stack approach
 
-        stack = []  # stores indices
+        stack = []
+        n  = len(height)
+        min_border = None
         water = 0
-        n = len(height)
         for i in range(n):
             while stack and height[stack[-1]] < height[i]:
-                valley = stack.pop()
+                v = height[stack.pop()]
                 if not stack:
                     break
-                left_wall = stack[-1]
-                width = i - left_wall - 1
-                bounded_height = min(height[i], height[left_wall]) - height[valley]
-                water += bounded_height * width
+                # print(stack, height[i])
+                min_border = min(height[stack[-1]],height[i])
+                width = i - stack[-1] - 1
+                water += (min_border - v) * width 
+            # print(stack)
             stack.append(i)
-        return water
         # [0,1,0,2,1,0,1i,3,2,1,2,1]
         # [2,1,1] temp_stack = [0] , 2
         return water
