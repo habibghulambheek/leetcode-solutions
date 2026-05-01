@@ -10,14 +10,14 @@ class Solution(object):
         n = len(nums) 
         remove = n - k
         for i in range(n):
-            # print("Req elements:",(k - len(stack)) ,"Left:", n - (i), "Stack:", stack)
+            # print("Req elements:",(k - len(stack)) ,"Left:", n - (i), "Stack:", stack, remove)
                
             while stack and stack[-1] > nums[i] and remove > 0:
                     stack.pop()
                     remove -= 1
             # print("After popping by ", nums[i] ,":", stack)
-       
+           
             stack.append(nums[i])
             # print("After appending:", stack)
             
-        return stack[0:k]
+        return stack[:k]
