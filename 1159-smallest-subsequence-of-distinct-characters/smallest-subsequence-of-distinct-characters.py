@@ -7,19 +7,21 @@ class Solution(object):
         stack = []
         n = len(s)
         # "cbaacabcaaccaacababa"
-        #  acb,acb
+        #  0,
+        last = {c: i for i, c in enumerate(s)}
+        print(last)
         elements = set()
         for i in range(n):
-            while stack and stack[-1] >= s[i]:
+            if s[i]  in elements:
+                    continue
+            while stack and s[stack[-1]] > s[i]:
                 # print(stack,stack[-1],i,s[i],s[i::])
-                if s[i]  in elements:
-                    break
-                if stack[-1] in s[i::]:
-                    elements.discard(stack[-1])
+
+                if i < last[s[stack[-1]]] :
+                    elements.discard(s[stack[-1]])
                     stack.pop()
                 else:
                     break
-            if s[i] not in elements:
-                stack.append(s[i])
-                elements.add(s[i])
-        return "".join(stack)
+            stack.append(i)
+            elements.add(s[i])
+        return "".join([s[i] for i in stack])
