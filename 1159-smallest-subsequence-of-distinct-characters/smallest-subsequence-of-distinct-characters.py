@@ -9,7 +9,7 @@ class Solution(object):
         # "cbaacabcaaccaacababa"
         #  0,
         last = {c: i for i, c in enumerate(s)}
-        print(last)
+        # print(last)
         elements = set()
         for i in range(n):
             if s[i]  in elements:
