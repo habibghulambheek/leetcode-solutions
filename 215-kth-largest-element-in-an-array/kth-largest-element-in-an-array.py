@@ -6,7 +6,10 @@ class Solution(object):
         :rtype: int
         """
         # min_heap = 3
-        heapq.heapify(nums)
-        while len(nums) > k:
-            heapq.heappop(nums)
-        return nums[0]
+        heap = nums[:k]
+        heapq.heapify(heap)
+        for x in nums[k:]:
+            if heap[0] < x:
+                heapq.heapreplace(heap,x)
+        return heap[0]
+        # k log n + n 
