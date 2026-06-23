@@ -4,7 +4,7 @@ class Solution:
         ans   = []
         # seeding
         n = len(matrix)
-        for j in range(n):
+        for j in range(min(k,n)):
             heapq.heappush(heap, (matrix[0][j], 0, j))
         while heap and len(ans) < k:
             val, i, j = heapq.heappop(heap)
