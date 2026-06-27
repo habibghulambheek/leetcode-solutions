@@ -5,5 +5,4 @@ class Solution:
         while k != 0:
             heapq.heapreplace(heap,-math.floor((-heap[0])**(0.5)))
             k -= 1
-            # print(heap)
         return -sum(heap)
