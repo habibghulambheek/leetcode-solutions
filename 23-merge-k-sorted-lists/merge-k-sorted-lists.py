@@ -16,11 +16,11 @@ class Solution(object):
         k = len(lists)
         for i in range(k):
             if lists[i]:
-                heapq.heappush(heap, (lists[i].val,lists[i]))
+                heapq.heappush(heap, (lists[i].val,i,lists[i]))
         while heap:
-            val, node = heapq.heappop(heap)
+            val,idx ,node = heapq.heappop(heap)
             if node.next:
-                heapq.heappush(heap, (node.next.val,node.next))
+                heapq.heappush(heap, (node.next.val,idx,node.next))
             if head:
                 ans.next = node
                 ans = ans.next
