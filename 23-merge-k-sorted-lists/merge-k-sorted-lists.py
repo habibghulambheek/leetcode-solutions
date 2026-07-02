@@ -13,7 +13,6 @@ class Solution(object):
             return None
         heap = []
         head = None
-        ans = None
         k = len(lists)
         for i in range(k):
             if lists[i]:
@@ -22,7 +21,7 @@ class Solution(object):
             val, node = heapq.heappop(heap)
             if node.next:
                 heapq.heappush(heap, (node.next.val,node.next))
-            if ans:
+            if head:
                 ans.next = node
                 ans = ans.next
                 ans.next = None
