@@ -20,8 +20,7 @@ class Solution(object):
                 idx2 = idx1 
                 idx1 = 2
             # print(amount, amount[idx1], amount[idx2])
-            if amount[idx1] != 0:
-                amount[idx1] -= 1
+            amount[idx1] -= 1
             if amount[idx2] != 0:
                 amount[idx2] -= 1
             ans += 1
