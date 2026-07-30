@@ -4,22 +4,12 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        if len(nums) == 1:
-            return 0 
-        ans  = 0
-        gas  = nums[0] 
-        max_pos = nums[0]
-        max_idx = 0
-        idx = 0
-        for n in nums[1:]:
-            if gas == 0:
-                gas = nums[max_idx] - (idx - max_idx)
-                ans += 1
-            idx += 1
-            gas -= 1
-            pos = idx + nums[idx]
-            if pos >= max_pos:
-                max_pos = pos
-                max_idx = idx
-   
-        return ans + 1
+        jumps = 0
+        current_end = 0 
+        farthest = 0
+        for i in range(len(nums) - 1 ):
+            farthest = max(farthest, i + nums[i])
+            if i == current_end:
+                current_end = farthest
+                jumps += 1
+        return jumps
