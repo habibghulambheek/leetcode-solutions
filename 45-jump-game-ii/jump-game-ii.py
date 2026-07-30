@@ -17,14 +17,9 @@ class Solution(object):
                 ans += 1
             idx += 1
             gas -= 1
-
-
-            # print("gas:",gas,"max_pos:", max_pos,"max_idx:", max_idx,"idx:", idx,"ans:", ans)
             pos = idx + nums[idx]
             if pos >= max_pos:
                 max_pos = pos
                 max_idx = idx
    
-        if gas >= 0:
-            ans += 1
-        return ans 
+        return ans + 1
