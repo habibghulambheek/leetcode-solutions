@@ -12,13 +12,10 @@ class Solution(object):
             if ratings[i-1] < ratings[i]:
                 ans[i] = ans[i-1] + 1
             else:
-                # print(ratings[i])
                 ans[i] =  1 
         for i in range(n-2,-1,-1):
-            # print(ratings[i], ratings[i + 1])
             if ratings[i] > ratings[i+1]:
                 if ans[i] < ans[i+1] +1:
                     ans[i] = ans[i+1] + 1
        
-        # print(ans, ratings)
         return sum(ans)
