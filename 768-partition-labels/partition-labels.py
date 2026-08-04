@@ -5,13 +5,11 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        last_idx = {}
+        last_idx = {c:i for i, c in enumerate(s)}
         n = len(s)
-        for i in range(n-1,-1,-1):
-            if s[i] not in last_idx:
-                last_idx[s[i]] = i
+
         ans = []
-        start, end = 0, last_idx[s[i]]
+        start, end = 0, last_idx[s[0]]
         for i in range(n):
             end = max(end,last_idx[s[i]])
             if i >= end:
