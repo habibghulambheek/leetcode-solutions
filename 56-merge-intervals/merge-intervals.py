@@ -12,8 +12,6 @@ class Solution(object):
         start = intervals[0][0]
         end = intervals[0][1]
         for i in range(1,n):
-            # print(intervals[i-1], intervals[i])
-            # print(start, end)
             if end >= intervals[i][0]:
 
                 end   = max(end,intervals[i][1])
@@ -23,7 +21,6 @@ class Solution(object):
                 ans.append([start,end])
                 start = intervals[i][0]
                 end =  intervals[i][1]
-            # print(start, end)
 
         ans.append([start,end])
         return ans
