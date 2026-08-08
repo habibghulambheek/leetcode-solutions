@@ -4,18 +4,10 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
+        profit = 0
+        for i in range(1, len(prices)):
+            if prices[i-1] < prices[i]:
+                profit += prices[i] - prices[i-1]
 
-        n = len(prices)
-        ans = 0
-        a = prices[0]
-        for i in range(1,n):
-            if prices[i] <= a:
-                a =  prices[i]
-            else:
-                if i < n-1:
-                    if prices[i] >= prices[i+1]:
-                        ans += prices[i] - a
-                        a = prices[i+1]
-                else:
-                    ans += prices[i] - a
-        return ans
+
+        return profit
