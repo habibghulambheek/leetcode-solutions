@@ -12,7 +12,7 @@ class Solution(object):
             # if area  
             temp_W = i 
             temp_L = area // i
-            print(temp_W, temp_L)
+            # print(temp_W, temp_L)
             if area  == (temp_L * temp_W):
                 L = temp_L
                 W = temp_W
