@@ -14,14 +14,13 @@ class Solution(object):
 
         
         def isSame(p, q):
-            if p == None and q !=None:
-                return False
-            elif q == None and p != None:
-                return False
-            elif q == None and p == None:
+            if q == None and p == None:
                 return True
-            if p.val != q.val:
+            if p == None or q == None or ( p.val != q.val):
                 return False
+
+            
+            
             sameLeft = isSame(p.left, q.left)
 
             if  sameLeft == False:
