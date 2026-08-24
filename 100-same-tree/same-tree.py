@@ -14,7 +14,6 @@ class Solution(object):
 
         
         def isSame(p, q):
-            # print(p,q)
             if p == None and q !=None:
                 return False
             elif q == None and p != None:
