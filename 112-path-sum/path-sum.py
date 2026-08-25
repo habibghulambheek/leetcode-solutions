@@ -13,15 +13,7 @@ class Solution(object):
         """
         if not root:
             return False
-        def check_sum(node, _sum = 0):
-            _sum  = _sum + node.val
-
-            if node.left == None and node.right == None:
-                return _sum == targetSum
-            
-            if node.left and check_sum(node.left, _sum ):
-                return True
-            if node.right and check_sum(node.right, _sum ):
-                return True
-            return False
-        return check_sum(root)
+        if root.left is None and root.right is None:
+            return targetSum  == root.val
+        remaining = targetSum - root.val
+        return self.hasPathSum(root.left, remaining) or self.hasPathSum(root.right, remaining)
