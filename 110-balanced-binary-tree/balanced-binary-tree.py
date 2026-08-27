@@ -10,21 +10,22 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: bool
         """
-        ans = True
-        def check_balance(node, height = 0):
-            nonlocal ans
+        def height(node):
             if not node:
-                return height
-            if not ans:
-                return None
+                return 0
+            left = height(node.left)
             
-            left_height  = check_balance(node.left, height+ 1)
-            right_height = check_balance(node.right, height+ 1)
-            if left_height == None or right_height == None:
-                return None
-            if abs(left_height - right_height) > 1:
-                ans = False
+            if left == -1:
+                return -1
             
-            return max(left_height, right_height)
-        check_balance(root)
-        return ans
+            right = height(node.right)
+            
+            if right == -1:
+                return -1
+
+            if abs(left - right) > 1:
+                return -1 
+            
+            return max(left, right) + 1
+        
+        return height(root) !=  -1
