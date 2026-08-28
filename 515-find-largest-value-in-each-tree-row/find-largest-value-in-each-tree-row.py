@@ -18,14 +18,12 @@ class Solution:
 
             for _ in range(len(queue)):
                 node = queue.popleft()
-                # print(node.val)
                 if node.left:
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
                 
                 max_val = max(node.val, max_val)
-            # print()
         
             ans.append(max_val)
 
