@@ -14,7 +14,7 @@ class Solution:
             nonlocal max_level
             nonlocal ans
             if not node:
-                return level
+                return 
             level += 1
             if max_level < level:
                 max_level = level
