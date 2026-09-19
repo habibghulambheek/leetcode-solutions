@@ -1,21 +1,12 @@
-class Solution(object):
-    def finalPrices(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: List[int]
-        """
+class Solution:
+    def finalPrices(self, prices: list[int]) -> list[int]:
         stack = []
-
-        n = len(prices)
-        # ans = [0] * n
-        for j in range(n-1,-1,-1 ):
-            while stack and stack[-1] > prices[j]:
-                stack.pop()
-            # if not stack:
-            #     ans[j] = prices[j]
-            value = prices[j]
-            if stack:
-                prices[j] = prices[j] - stack[-1]
-
-            stack.append(value)
+        
+        for i in range(len(prices)):
+            x = prices[i]
+            while stack and prices[stack[-1]] >= x:
+                idx = stack.pop()
+                prices[idx] -= x
+            
+            stack.append(i)
         return prices
