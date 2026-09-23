@@ -20,8 +20,9 @@ class Solution:
                 count += prefix[(running_sum - targetSum)] 
             
             prefix[running_sum] = prefix.get(running_sum, 0) + 1
-            find_paths(node.left, running_sum, prefix.copy())
-            find_paths(node.right, running_sum, prefix.copy())
+            find_paths(node.left, running_sum, prefix)
+            find_paths(node.right, running_sum, prefix)
+            prefix[running_sum] -= 1
         find_paths(root)
         return count
             
