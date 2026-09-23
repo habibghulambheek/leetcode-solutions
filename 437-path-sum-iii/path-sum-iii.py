@@ -23,6 +23,8 @@ class Solution:
             find_paths(node.left, running_sum, prefix)
             find_paths(node.right, running_sum, prefix)
             prefix[running_sum] -= 1
+            if prefix[running_sum] == 0:
+                del prefix[running_sum]
         find_paths(root)
         return count
             
