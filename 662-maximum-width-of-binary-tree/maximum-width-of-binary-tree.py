@@ -19,5 +19,4 @@ class Solution:
                     level.append((2*pos, node.left))
                 if node.right:
                     level.append((2*pos + 1, node.right))
-            # print(level)
         return ans
