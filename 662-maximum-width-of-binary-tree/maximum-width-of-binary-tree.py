@@ -12,9 +12,11 @@ class Solution:
         ans = 1
         while level:
             n = len(level)
+            first =  level[0][0]
             ans = max(ans, level[-1][0] - level[0][0] + 1)
             for i in range(n):
                 pos, node =  level.popleft()
+                pos -= first
                 if node.left:
                     level.append((2*pos, node.left))
                 if node.right:
