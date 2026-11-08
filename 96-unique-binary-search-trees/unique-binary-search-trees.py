@@ -8,5 +8,6 @@ class Solution:
             ans = 0
             for i in range(n):
                 ans += helper(i) * helper(n - i - 1)
+            dp[n] = ans
             return ans
         return helper(n)
