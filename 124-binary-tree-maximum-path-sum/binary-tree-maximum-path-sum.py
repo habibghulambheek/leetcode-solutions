@@ -12,22 +12,10 @@ class Solution:
             nonlocal ans
             if not node:
                 return 0
-            left = helper(node.left)
-            right =  helper(node.right)
-            
-            
-            # ans = max(ans , total)
-
-            total = node.val
-            if left >  right:
-                if left > 0:
-                    total += left
-                
-            else:
-                if right > 0:
-                    total += right     
-            ans = max(ans,total, node.val + right + left)
-            return total
+            left = max(helper(node.left), 0)
+            right =  max(helper(node.right), 0)            
+            ans = max(ans, node.val + right + left)
+            return node.val + max(left, right)
         helper(root)
         return ans
 
