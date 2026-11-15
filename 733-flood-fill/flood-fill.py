@@ -8,7 +8,6 @@ class Solution:
             nonlocal color_change, image
             if i < 0 or i >= m or j < 0 or j >= n:
                 return
-            # print(i,j, color_change, image[i][j] , color)
             if image[i][j] == color_change:
                 image[i][j] = color
             else:
