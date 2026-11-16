@@ -5,7 +5,6 @@ class Solution:
         
         def helper(i, j):
             nonlocal grid,n,m
-            # print(i, j, n,m)
             if i < 0 or i >= n or j < 0 or j >= m:
                 return 1
             if grid[i][j] == 2:
