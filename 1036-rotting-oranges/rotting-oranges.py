@@ -23,6 +23,7 @@ class Solution:
             minutes += 1
         return minutes if fresh == 0 else -1
 
+        # dead code
         # times = [([None] * n) for _ in range(m)]
         # for i in range(m):
         #     for j in range(n):
