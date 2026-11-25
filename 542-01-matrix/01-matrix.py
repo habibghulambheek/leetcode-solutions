@@ -14,7 +14,6 @@ class Solution:
 
         # print(Distances, queue)
         while queue:
-            for _ in range(len(queue)):
                 x, y, val = queue.popleft()
                 if mat[x][y] == 0:
                     Distances[x][y] = 0 
@@ -23,8 +22,6 @@ class Solution:
                         if mat[i][j] == 1:
                             if Distances[i][j] == None:
                                 Distances[i][j] = val + 1
-                            else:
-                                Distances[i][j] = min(Distances[i][j], val + 1)
                             queue.append((i, j , val + 1))
                             seen.add((i,j))
 
